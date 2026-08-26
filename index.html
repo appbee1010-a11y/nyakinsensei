@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プライバシーポリシー - にゃんきん先生の『どっちがお得』計算機</title>
+    <style>
+        :root {
+            --primary: #c25e00;
+            --primary-light: #fff8f0;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --bg: #f7fafc;
+            --card-bg: #ffffff;
+            --border: #edf2f7;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 48px;
+            border: 1px solid var(--border);
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--primary-light);
+            margin-bottom: 36px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #1a202c;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .updated-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fffaf5, #fff5eb);
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 36px;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: #2d3748;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 1.25rem;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #4a5568;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+
+        ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .contact-box {
+            background-color: var(--bg);
+            border: 1px dashed #cbd5e0;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-box a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+            .container {
+                padding: 24px;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="badge">PRIVACY POLICY</span>
+        <h1>プライバシーポリシー</h1>
+        <p class="updated-date">最終更新日：2026年8月26日</p>
+    </div>
+
+    <div class="highlight-box">
+        <strong>安心・安全への取り組み（完全ローカル処理設計）</strong>
+        『にゃんきん先生の「どっちがお得」計算機』（以下、「本アプリ」）は、ユーザーのプライバシーを最優先に設計されています。アプリ内に入力されたすべてのデータは端末内のみで処理され、外部サーバーへ送信・収集されることは一切ありません。
+    </div>
+
+    <section>
+        <h2>1. 個人情報の収集と利用について</h2>
+        <p>本アプリは、ユーザー登録やアカウント作成を一切必要とせず、氏名、メールアドレス、電話番号などの個人を特定できる情報を収集・保存・追跡することはありません。</p>
+        <p>シミュレーション時に入力される以下のデータは、すべてユーザーの端末内（ローカル）でのみリアルタイム計算に使用されます。</p>
+        <ul>
+            <li>現在の年齢・性別</li>
+            <li>年金種別・推定年収・加入月数</li>
+            <li>貯蓄額・生活費・老後の価値観</li>
+            <li>配偶者に関する情報（加給年金の判定用）</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. データの端末内保存について</h2>
+        <p>本アプリの「シミュレーションプラン保存機能」をご利用いただいた場合、計算結果データはお使いの端末のローカルストレージ（Roomデータベース等）にのみ暗号化等を用いて安全に保存されます。アプリをアンインストールすると、これらの保存データはすべて完全に消去されます。</p>
+    </section>
+
+    <section>
+        <h2>3. 外部ライブラリとサービスについて</h2>
+        <p>本アプリは、アプリの品質向上や安定動作の確保、およびレポート印刷機能（プレミアム機能）の提供のために、以下の標準的なSDKを使用する場合がありますが、これらを通じてユーザーのシミュレーション内容や個人を特定するデータが第三者に提供されることはありません。</p>
+        <ul>
+            <li>Google Play In-App Billing（アプリ内課金処理）</li>
+            <li>OS標準の印刷サービス（PDFレポート作成・印刷連携）</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. 免責事項</h2>
+        <p>本アプリが提供するシミュレーション結果は、現行の日本の公的年金法および統計データに基づく概算値・目安であり、将来の実際の年金受給額や損益分岐点を法的に保証するものではありません。正確な受給額や制度の詳細については、日本年金機構の「ねんきん定期便」や年金事務所、または専門のファイナンシャルプランナーにご確認ください。</p>
+    </section>
+
+    <section>
+        <h2>5. プライバシーポリシーの改定</h2>
+        <p>法令の改正やアプリの機能アップデートに伴い、本プライバシーポリシーを改定することがあります。重要な変更がある場合は、アプリ内または本ページにて告知いたします。</p>
+    </section>
+
+    <div class="contact-box">
+        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">お問い合わせ窓口</h3>
+        <p style="margin-bottom: 0;">本ポリシーまたは本アプリに関するご質問・ご要望は、下記メールアドレスまでお気軽にお問い合わせください。</p>
+        <p style="margin-top: 12px; font-size: 1.05rem;">
+            ✉️ <a href="mailto:appbee1010@gmail.com">appbee1010@gmail.com</a>
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2026 にゃんきん先生の『どっちがお得』計算機 All Rights Reserved.
+    </footer>
+</div>
+
+</body>
+</html>
