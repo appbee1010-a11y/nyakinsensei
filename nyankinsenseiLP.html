@@ -211,58 +211,54 @@
                 選択していくだけで、あなたにベストな受給戦略を割り出します。
             </p>
             
-            <!-- スクロールコンテナ -->
-            <div class="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory hide-scrollbar justify-start md:justify-center px-4 md:px-0">
-                
-                <!-- Step 1 -->
-                <div class="flex-none w-64 snap-center">
-                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">1</div>
-                    <h4 class="font-bold text-white text-lg mb-4">基本情報</h4>
-                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
-                        <img src="./Screenshot_20260826_120400.png" alt="Step 1 基本情報" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+1'">
-                    </div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="flex-none w-64 snap-center">
-                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">2</div>
-                    <h4 class="font-bold text-white text-lg mb-4">働き方・年収</h4>
-                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
-                        <img src="./Screenshot_20260826_120345.png" alt="Step 2 働き方・年収" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+2'">
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="flex-none w-64 snap-center">
-                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">3</div>
-                    <h4 class="font-bold text-white text-lg mb-4">年金設定</h4>
-                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
-                        <img src="./Screenshot_20260826_120444.png" alt="Step 3 年金設定" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+3'">
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex-none w-64 snap-center">
-                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">4</div>
-                    <h4 class="font-bold text-white text-lg mb-4">配偶者の状況</h4>
-                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
-                        <img src="./Screenshot_20260826_120504.png" alt="Step 4 配偶者の状況" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+4'">
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="flex-none w-64 snap-center">
-                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">5</div>
-                    <h4 class="font-bold text-white text-lg mb-4">資産と価値観</h4>
-                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
-                        <img src="./Screenshot_20260826_120554.png" alt="Step 5 資産と価値観" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+5'">
-                    </div>
-                </div>
-            </div>
-            
-            <p class="text-sm text-orange-200 mt-4">※画像を横にスクロールできます</p>
+           <!-- スクロールなし・全貌一覧コンテナ -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 pb-8 px-4 md:px-0 max-w-6xl mx-auto">
+    
+    <!-- Step 1 -->
+    <div class="w-full mx-auto max-w-[220px]">
+        <div class="bg-white text-[#8A5300] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-base md:text-xl mb-3 md:mb-4 mx-auto shadow-lg">1</div>
+        <h4 class="font-bold text-white text-sm md:text-lg mb-3 md:mb-4 text-center whitespace-nowrap">基本情報</h4>
+        <div class="rounded-xl md:rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+            <img src="./Screenshot_20260826_120400.png" alt="Step 1 基本情報" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+1'">
         </div>
-    </section>
+    </div>
+    
+    <!-- Step 2 -->
+    <div class="w-full mx-auto max-w-[220px]">
+        <div class="bg-white text-[#8A5300] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-base md:text-xl mb-3 md:mb-4 mx-auto shadow-lg">2</div>
+        <h4 class="font-bold text-white text-sm md:text-lg mb-3 md:mb-4 text-center whitespace-nowrap">働き方・年収</h4>
+        <div class="rounded-xl md:rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+            <img src="./Screenshot_20260826_120345.png" alt="Step 2 働き方・年収" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+2'">
+        </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="w-full mx-auto max-w-[220px]">
+        <div class="bg-white text-[#8A5300] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-base md:text-xl mb-3 md:mb-4 mx-auto shadow-lg">3</div>
+        <h4 class="font-bold text-white text-sm md:text-lg mb-3 md:mb-4 text-center whitespace-nowrap">年金設定</h4>
+        <div class="rounded-xl md:rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+            <img src="./Screenshot_20260826_120444.png" alt="Step 3 年金設定" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+3'">
+        </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="w-full mx-auto max-w-[220px]">
+        <div class="bg-white text-[#8A5300] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-base md:text-xl mb-3 md:mb-4 mx-auto shadow-lg">4</div>
+        <h4 class="font-bold text-white text-sm md:text-lg mb-3 md:mb-4 text-center whitespace-nowrap">配偶者の状況</h4>
+        <div class="rounded-xl md:rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+            <img src="./Screenshot_20260826_120504.png" alt="Step 4 配偶者の状況" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+4'">
+        </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="w-full mx-auto max-w-[220px]">
+        <div class="bg-white text-[#8A5300] w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-base md:text-xl mb-3 md:mb-4 mx-auto shadow-lg">5</div>
+        <h4 class="font-bold text-white text-sm md:text-lg mb-3 md:mb-4 text-center whitespace-nowrap">資産と価値観</h4>
+        <div class="rounded-xl md:rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+            <img src="./Screenshot_20260826_120554.png" alt="Step 5 資産と価値観" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+5'">
+        </div>
+    </div>
+</div>
 
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
