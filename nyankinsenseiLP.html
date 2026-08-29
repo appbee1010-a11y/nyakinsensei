@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年金受給はいつから？ にゃんきん先生の「どっちがお得」計算機</title>
+    <!-- Tailwind CSS (Play CDN for v4) -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        /* ふわっと浮き出るアニメーション */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* スクロールバー非表示 (Stepセクション用) */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <header class="bg-gradient-to-br from-[#FFF9F0] to-white relative overflow-hidden pb-16 pt-20 lg:pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                
+                <!-- テキストエリア -->
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left fade-in-up">
+                    <div class="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start">
+                        <span class="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-800">完全無料</span>
+                        <span class="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-800">会員登録不要</span>
+                        <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">安心の端末内処理</span>
+                    </div>
+                    
+                    <h1 class="text-4xl tracking-tight font-extrabold text-[#8A5300] sm:text-5xl md:text-6xl mb-6">
+                        <span class="block text-2xl sm:text-3xl font-bold text-gray-500 mb-2">損得の数字だけで、</span>
+                        <span class="block">老後を決めていませんか？</span>
+                    </h1>
+                    
+                    <p class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl font-medium leading-relaxed">
+                        年金は何歳からもらうのが正解か。<br class="hidden sm:block">
+                        金額だけでなく<strong class="text-[#F59E0B]">「あなたの生き方・価値観」</strong>で受給開始時期を導き出す、まったく新しい年金シミュレーター。
+                    </p>
+                    
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <p class="text-sm font-semibold text-gray-900 tracking-wide uppercase mb-3">＼ 無料ダウンロードはこちら ／</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.ashley.nyakinsensei" target="_blank" class="inline-block transition-transform hover:scale-105">
+                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play で手に入れよう" class="h-16">
+                        </a>
+                        <p class="mt-3 text-xs text-gray-500">※Android専用アプリです。</p>
+                    </div>
+                </div>
+                
+                <!-- 画像エリア (Hero Mockups) -->
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center fade-in-up delay-200">
+                    <div class="relative mx-auto w-full rounded-2xl lg:max-w-md flex justify-center space-x-4">
+                        <!-- モック1 (最適解画面) -->
+                        <div class="z-20 w-1/2 transform translate-y-4 shadow-2xl rounded-[2rem] overflow-hidden border-4 border-white bg-white">
+                            <img src="./Screenshot_20260825_222101.png" alt="最適解画面" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/400x800/F59E0B/FFFFFF?text=最適解画面'">
+                        </div>
+                        <!-- モック2 (グラフ画面) -->
+                        <div class="z-10 w-1/2 transform -translate-y-4 shadow-xl rounded-[2rem] overflow-hidden border-4 border-white bg-white">
+                            <img src="./Screenshot_20260826_121042.png" alt="損益分岐点グラフ" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/400x800/8A5300/FFFFFF?text=グラフ画面'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-[#8A5300] mb-8">年金受給、こんな疑問や不安を抱えていませんか？</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+                <div class="bg-[#FFF9F0] p-6 rounded-xl shadow-sm border border-orange-100 flex items-start">
+                    <span class="text-[#F59E0B] text-2xl mr-3">🐱</span>
+                    <p class="text-gray-700 font-medium">「60歳から繰り上げると損？ でも元気なうちにお金を使いたい…」</p>
+                </div>
+                <div class="bg-[#FFF9F0] p-6 rounded-xl shadow-sm border border-orange-100 flex items-start">
+                    <span class="text-[#F59E0B] text-2xl mr-3">🐱</span>
+                    <p class="text-gray-700 font-medium">「70歳まで待つと増えるのは分かるけど、何歳まで生きれば元が取れる？」</p>
+                </div>
+                <div class="bg-[#FFF9F0] p-6 rounded-xl shadow-sm border border-orange-100 flex items-start">
+                    <span class="text-[#F59E0B] text-2xl mr-3">🐱</span>
+                    <p class="text-gray-700 font-medium">「配偶者の加給年金や、手元の貯金を含めたリアルな資金計画が見えない」</p>
+                </div>
+                <div class="bg-[#FFF9F0] p-6 rounded-xl shadow-sm border border-orange-100 flex items-start">
+                    <span class="text-[#F59E0B] text-2xl mr-3">🐱</span>
+                    <p class="text-gray-700 font-medium">「年金の計算サイトは難しすぎるし、自分の情報をネットに登録したくない」</p>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-[#8A5300] rounded-2xl max-w-3xl mx-auto shadow-lg">
+                <p class="text-xl md:text-2xl font-bold text-white">
+                    にゃんきん先生が、その迷いを<br class="sm:hidden">わずか5ステップでスッキリ解決します！
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-base text-[#F59E0B] font-semibold tracking-wide uppercase">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    金額だけでは決めない、<br class="sm:hidden">新しい年金シミュレーション
+                </p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Feature 01 -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                    <div>
+                        <span class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-[#F59E0B] text-white text-xl font-bold mb-4 shadow-md">01</span>
+                        <h3 class="text-2xl font-bold text-[#8A5300] mb-4">「4つの生き方スタンス」で導くあなたの最適解</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            単純な損得計算だけでなく、あなたが重視したい老後のライフスタイルに合わせて開始年齢を即座に提案します。
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-400">
+                                <span class="mr-3 text-xl">⚡</span>
+                                <div>
+                                    <strong class="block text-gray-900">自由満喫派</strong>
+                                    <span class="text-sm text-gray-600">今の時間を大切に。60代から使えるお金を重視。</span>
+                                </div>
+                            </li>
+                            <li class="flex bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-400">
+                                <span class="mr-3 text-xl">✈️</span>
+                                <div>
+                                    <strong class="block text-gray-900">今を楽しむ派</strong>
+                                    <span class="text-sm text-gray-600">元気なうちに旅行や趣味などを楽しみたい。</span>
+                                </div>
+                            </li>
+                            <li class="flex bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-400">
+                                <span class="mr-3 text-xl">⚖️</span>
+                                <div>
+                                    <strong class="block text-gray-900">安心第一派</strong>
+                                    <span class="text-sm text-gray-600">貯金と年金のバランスを考えて無理なく暮らしたい。</span>
+                                </div>
+                            </li>
+                            <li class="flex bg-white p-4 rounded-lg shadow-sm border-l-4 border-gray-400">
+                                <span class="mr-3 text-xl">🛡️</span>
+                                <div>
+                                    <strong class="block text-gray-900">資産最大化派</strong>
+                                    <span class="text-sm text-gray-600">将来の年金額を増やし、長生きしたときの安心を重視。</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-10 lg:mt-0 px-4 sm:px-12 flex justify-center">
+                         <img src="./Screenshot_20260826_120918.jpg" alt="生き方スタンス選択画面" class="rounded-3xl shadow-xl border-4 border-white max-w-sm w-full" onerror="this.src='https://placehold.co/400x800/FAFAFA/333333?text=スタンス選択画面'">
+                    </div>
+                </div>
+
+                <!-- Feature 02 -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center flex-col-reverse lg:flex-row-reverse">
+                    <div class="mt-10 lg:mt-0 order-2 lg:order-1 px-4 sm:px-12 flex justify-center">
+                        <img src="./Screenshot_20260826_121042.png" alt="損益分岐点グラフ画面" class="rounded-3xl shadow-xl border-4 border-white max-w-sm w-full" onerror="this.src='https://placehold.co/400x800/FAFAFA/333333?text=グラフ画面'">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <span class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-[#F59E0B] text-white text-xl font-bold mb-4 shadow-md">02</span>
+                        <h3 class="text-2xl font-bold text-[#8A5300] mb-4">60歳〜75歳を「月単位」で徹底比較</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            60歳0ヶ月から75歳0ヶ月まで、受給開始時期を月単位でシミュレーション。スライダーを動かすだけで、年金額がどう変わるか一目でわかります。
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            さらに、「何歳で総受給額が逆転するか（損益分岐点）」を直感的なグラフで可視化。「何歳まで生きると、どちらが多くなる？」という疑問を即座に解消します。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 03 & 04 (Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[#FFF9F0] p-3 rounded-lg text-[#F59E0B] text-2xl mr-4">🔒</span>
+                            <h3 class="text-xl font-bold text-gray-900">登録不要・徹底したプライバシー</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            会員登録やログイン、氏名の入力は一切不要。入力した情報は外部サーバーに送信されず、あなたのスマートフォン（端末内）でのみ処理される安心設計です。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[#FFF9F0] p-3 rounded-lg text-[#F59E0B] text-2xl mr-4">📄</span>
+                            <h3 class="text-xl font-bold text-gray-900">結果はA4カラーレポートに</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            シミュレーション結果は、見やすいA4カラーの診断レポートとしてPDF出力が可能。ご家族と老後の生活設計を考える際の決定版資料になります。
+                            <span class="block mt-2 text-xs text-gray-400">※PDF出力機能の無制限利用は1回限りの買い切り課金（280円）が必要です。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-[#8A5300] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white mb-4">かんたん5ステップですぐに診断</h2>
+            <p class="text-lg font-medium text-orange-200 mb-12">
+                選択していくだけで、あなたにベストな受給戦略を割り出します。
+            </p>
+            
+            <!-- スクロールコンテナ -->
+            <div class="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory hide-scrollbar justify-start md:justify-center px-4 md:px-0">
+                
+                <!-- Step 1 -->
+                <div class="flex-none w-64 snap-center">
+                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">1</div>
+                    <h4 class="font-bold text-white text-lg mb-4">基本情報</h4>
+                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+                        <img src="./Screenshot_20260826_120400.png" alt="Step 1 基本情報" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+1'">
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex-none w-64 snap-center">
+                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">2</div>
+                    <h4 class="font-bold text-white text-lg mb-4">働き方・年収</h4>
+                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+                        <img src="./Screenshot_20260826_120345.png" alt="Step 2 働き方・年収" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+2'">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex-none w-64 snap-center">
+                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">3</div>
+                    <h4 class="font-bold text-white text-lg mb-4">年金設定</h4>
+                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+                        <img src="./Screenshot_20260826_120444.png" alt="Step 3 年金設定" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+3'">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex-none w-64 snap-center">
+                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">4</div>
+                    <h4 class="font-bold text-white text-lg mb-4">配偶者の状況</h4>
+                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+                        <img src="./Screenshot_20260826_120504.png" alt="Step 4 配偶者の状況" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+4'">
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex-none w-64 snap-center">
+                    <div class="bg-white text-[#8A5300] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mb-4 mx-auto shadow-lg">5</div>
+                    <h4 class="font-bold text-white text-lg mb-4">資産と価値観</h4>
+                    <div class="rounded-2xl shadow-xl overflow-hidden border-2 border-orange-300 bg-white">
+                        <img src="./Screenshot_20260826_120554.png" alt="Step 5 資産と価値観" class="w-full h-auto object-cover transition-transform hover:scale-105" onerror="this.src='https://placehold.co/400x800/FFFFFF/8A5300?text=Step+5'">
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-orange-200 mt-4">※画像を横にスクロールできます</p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-[#8A5300] mb-6">年金の「正解」は、人それぞれ。</h2>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                にゃんきん先生と一緒に、お金だけではなく<br class="hidden sm:block">
+                「これからの人生」から年金の受け取り方を考えてみませんか？
+            </p>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.ashley.nyakinsensei" target="_blank" class="inline-block transition-transform hover:scale-105">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/ja_badge_web_generic.png" alt="Google Play で手に入れよう" class="h-20 mx-auto">
+            </a>
+            <p class="mt-4 text-sm text-gray-500">無料で使える年金シミュレーション。あなたの老後の選択肢を、数字で見える化します。</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm flex flex-col items-center space-y-4">
+            <div>
+                <a href="https://appbee1010-a11y.github.io/nyakinsensei/" target="_blank" class="hover:text-gray-900 transition-colors">プライバシーポリシー</a>
+            </div>
+            <p>&copy; 2026 にゃんきん先生の「どっちがお得」計算機. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
